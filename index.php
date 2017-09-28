@@ -13,6 +13,7 @@ and open the template in the editor.
         <?php
         // put your code here
         echo 'hola amor como estas';
+        echo 'todos son buenos muchos';
         ?>
     </body>
 </html>

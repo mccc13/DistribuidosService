@@ -14,6 +14,7 @@ and open the template in the editor.
         // put your code here
         echo 'hola amor como estas';
         echo 'todos son buenos muchos';
+        echo 'mmmmmmmm';
         ?>
     </body>
 </html>

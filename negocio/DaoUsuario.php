@@ -43,5 +43,15 @@ class DaoUsuario {
             echo $exc->getTraceAsString();
         }
     }
+    
+    function iniciar($mail, $pass){
+        try {
+            global $con;
+            $re = $con->Execute("SELECT *FROM usuario where email = '$mail' and pass = '$pass'");
+            
+        } catch (Exception $ex) {
+            echo $exc->getTraceAsString();
+        }
+    }
 
 }

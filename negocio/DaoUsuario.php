@@ -18,6 +18,8 @@ class DaoUsuario {
     }
 
     function listarUsuarios() {
+        $cont = 0;
+        
         try {
             global $con;
             $re = $con->Execute("select *from usuario");

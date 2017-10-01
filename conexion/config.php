@@ -6,13 +6,13 @@ require_once '../adodb5/adodb-exceptions.inc.php';
 
 
 
-    $nombre = 'desaparecidos';
+    $nombre = 'buscado';
  
     $dbdriver = 'postgres';    
     $dbserver = '127.0.0.1';
     $dbname = $nombre;    
     $dbuser = 'postgres';
-    $dbpassword = 'password';  
+    $dbpassword = 'diego';  
     
     
     $con= NewADOConnection($dbdriver);

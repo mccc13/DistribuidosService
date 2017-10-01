@@ -9,15 +9,25 @@ class Usuario {
     public $pass;
     public $fechai;
     public $fechaf;
+    public $email;
 
-    function __construct($user, $nombre, $apellido, $sexo, $pass, $fecha_ini, $fecha_fin) {
-        $this->userid = $user;
+    function __construct($userid, $nombre, $apellido, $sexo, $pass, $fechai, $fechaf, $email) {
+        $this->userid = $userid;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->sexo = $sexo;
         $this->pass = $pass;
-        $this->fechai = $fecha_ini;
-        $this->fechaf = $fecha_fin;
+        $this->fechai = $fechai;
+        $this->fechaf = $fechaf;
+        $this->email = $email;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
     }
 
     function getUserid() {

@@ -5,10 +5,10 @@ include_once '../conexion/config.php';
 
 class DaoUsuario {
 
-    function regitrarUsuario($userid, $nombre, $apellido, $sexo, $pass, $fecha_ini, $fecha_fin) {
+    function regitrarUsuario($userid, $nombre, $apellido, $sexo, $pass, $fecha_ini, $fecha_fin, $email) {
         try {
             global $con;
-            $query = "INSERT INTO usuario(userid, nombre, apellido, sexo, pass, fechai, fechaf) values('$userid', '$nombre', '$apellido', '$sexo', '$pass', '$fecha_ini', '$fecha_fin')";
+            $query = "INSERT INTO usuario(userid, nombre, apellido, sexo, pass, fechai, fechaf, email) values('$userid', '$nombre', '$apellido', '$sexo', '$pass', '$fecha_ini', '$fecha_fin', '$email')";
 
             $re = $con->Execute($query);
             echo $re;
@@ -19,7 +19,7 @@ class DaoUsuario {
 
     function listarUsuarios() {
         $cont = 0;
-        
+
         try {
             global $con;
             $re = $con->Execute("select *from usuario");
@@ -34,7 +34,8 @@ class DaoUsuario {
 
                 $fecha_ini = $row["fechai"];
                 $fecha_fin = $row["fechaf"];
-                $user = new Usuario($userid, $nombre, $apellido, $sexo, "", $fecha_ini, $fecha_fin);
+                $email = $row["email"];
+                $user = new Usuario($userid, $nombre, $apellido, $sexo, "", $fecha_ini, $fecha_fin, $email);
                 //var_dump($coment);
                 $lista[$cont++] = $user;
             }
@@ -43,12 +44,11 @@ class DaoUsuario {
             echo $exc->getTraceAsString();
         }
     }
-    
-    function iniciar($mail, $pass){
+
+    function iniciar($mail, $pass) {
         try {
             global $con;
             $re = $con->Execute("SELECT *FROM usuario where email = '$mail' and pass = '$pass'");
-            
         } catch (Exception $ex) {
             echo $exc->getTraceAsString();
         }

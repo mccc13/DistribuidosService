@@ -2,17 +2,17 @@
 
 class Desaparecido {
 
-    public $desaparecidoID;
-    public $nombre;
-    public $apellido;
-    public $edad;
-    public $sexo;
-    public $estatura;
-    public $colorpelo;
-    public $colorpiel;
-    public $vestimenta;
-    public $constitucion;
-    public $otros;
+    var $desaparecidoID;
+    var $nombre;
+    var $apellido;
+    var $edad;
+    var $sexo;
+    var $estatura;
+    var $colorpelo;
+    var $colorpiel;
+    var $vestimenta;
+    var $constitucion;
+    var $otros;
 
     function __construct($desaparecidoID, $nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constitucion, $otros) {
         $this->desaparecidoID = $desaparecidoID;

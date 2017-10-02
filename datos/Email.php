@@ -2,13 +2,11 @@
 
 class Email {
 
-    //put your code here
-
-    public $emailID;
-    public $correo;
-    public $tipoCuenta;
-    public $user;
-    public $contacto;
+    var $emailID;
+    var $correo;
+    var $tipoCuenta;
+    var $user;
+    var $contacto;
 
     function __construct($emailID, $correo, $tipoCuenta, $user, $contacto) {
         $this->emailID = $emailID;

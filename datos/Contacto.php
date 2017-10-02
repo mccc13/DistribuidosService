@@ -2,13 +2,13 @@
 
 class Contacto {
     
-    public $contactoID;
-    public $nombre;
-    public $apellido;
-    public $sexo;
-    public $genero;
-    public $parentesco;
-    public $telefono;
+    var $contactoID;
+    var $nombre;
+    var $apellido;
+    var $sexo;
+    var $genero;
+    var $parentesco;
+    var $telefono;
        
     function __construct($contactoID, $nombre, $apellido, $sexo, $genero, $parentesco, $telefono) {
         $this->contactoID = $contactoID;

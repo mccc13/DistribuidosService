@@ -2,13 +2,13 @@
 
 class Anuncio {
     
-    public $anuncioID;
-    public $estado;
-    public $fecha;
-    public $userID;
-    public $contactoID;
-    public $desaparecidoID;
-    public $imagenID;
+    var $anuncioID;
+    var $estado;
+    var $fecha;
+    var $userID;
+    var $contactoID;
+    var $desaparecidoID;
+    var $imagenID;
     
     function __construct($anuncioID, $estado, $fecha, $userID, $contactoID, $desaparecidoID, $imagenID) {
         $this->anuncioID = $anuncioID;

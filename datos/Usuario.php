@@ -2,14 +2,14 @@
 
 class Usuario {
 
-    public $userid;
-    public $nombre;
-    public $apellido;
-    public $sexo;
-    public $pass;
-    public $fechai;
-    public $fechaf;
-    public $email;
+    var $userid;
+    var $nombre;
+    var $apellido;
+    var $sexo;
+    var $pass;
+    var $fechai;
+    var $fechaf;
+    var $email;
 
     function __construct($userid, $nombre, $apellido, $sexo, $pass, $fechai, $fechaf, $email) {
         $this->userid = $userid;

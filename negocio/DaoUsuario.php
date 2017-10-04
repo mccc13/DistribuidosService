@@ -45,13 +45,26 @@ class DaoUsuario {
         }
     }
 
-    function iniciar($mail, $pass) {
+    function verificarUser($mail, $pass) {
         try {
             global $con;
             $re = $con->Execute("SELECT *FROM usuario where email = '$mail' and pass = '$pass'");
+            return true;
         } catch (Exception $ex) {
             echo $exc->getTraceAsString();
+            return false;
         }
     }
+    
+    function iniciarSesion(){
+        if(!isset($_SESSION['email'])){
+            $_SESSION['email'] = $_REQUEST['email'];
+            $_SESSION['pass'] = $_REQUEST['pass'];
+            
+            $this->verificarUser($_SESSION['email'], $_SESSION['pass']);
+        }        
+    }
+    
+    
 
 }

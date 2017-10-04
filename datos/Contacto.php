@@ -1,7 +1,7 @@
 <?php
 
 class Contacto {
-    
+
     var $contactoID;
     var $nombre;
     var $apellido;
@@ -9,8 +9,12 @@ class Contacto {
     var $genero;
     var $parentesco;
     var $telefono;
-       
-    function __construct($contactoID, $nombre, $apellido, $sexo, $genero, $parentesco, $telefono) {
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+    function __construct1($contactoID, $nombre, $apellido, $sexo, $genero, $parentesco, $telefono) {
         $this->contactoID = $contactoID;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
@@ -19,8 +23,7 @@ class Contacto {
         $this->parentesco = $parentesco;
         $this->telefono = $telefono;
     }
-    
-    
+
     function getContactoID() {
         return $this->contactoID;
     }

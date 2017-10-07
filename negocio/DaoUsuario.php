@@ -1,23 +1,14 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include '../datos/Usuario.php';
+include_once '../conexion/config.php';
 
-/**
- * Description of DaoUsuario
- *
- * @author Maya
- */
 class DaoUsuario {
 
-    //put your code here
-    function regitrarUsuario($ci, $nombre, $direcion, $telefono, $usuario, $contrasena) {
+    function regitrarUsuario($userid, $nombre, $apellido, $sexo, $pass, $fecha_ini, $fecha_fin, $email) {
         try {
             global $con;
-            $query = "insert into usuario(descripcion,email,nombre,comentarios_sugerenciasid,paginaid) values('$descripcion','$email','$nombre',$sid,1)";
+            $query = "INSERT INTO usuario(userid, nombre, apellido, sexo, pass, fechai, fechaf, email) values('$userid', '$nombre', '$apellido', '$sexo', '$pass', '$fecha_ini', '$fecha_fin', '$email')";
 
             $re = $con->Execute($query);
             echo $re;
@@ -25,7 +16,10 @@ class DaoUsuario {
             echo $exc->getTraceAsString();
         }
     }
+
     function listarUsuarios() {
+        $cont = 0;
+
         try {
             global $con;
             $re = $con->Execute("select *from usuario");
@@ -33,19 +27,29 @@ class DaoUsuario {
                 //array(10) { [0]=> string(6) "tdydyd" ["descripcion"]=> string(6) "tdydyd" [1]=> string(8) "jvjgjhgj"
                 // ["email"]=> string(8) "jvjgjhgj" [2]=> string(5) "jkhkh" ["nombre"]=> string(5) "jkhkh" [3]=> string(2) "17" ["comentarios_sugerenciasid"]=> string(2) "17" [4]=> string(1) "1" ["paginaid"]=> string(1) "1" } 
                 //   var_dump($row);
-                $ci = $row["ci"];
-                $direccion = $row["direccion"];
+                $userid = $row["userid"];
                 $nombre = $row["nombre"];
-                $telefono = $row["telefono"];
-                $usuario = $row["usuario"];
-                $paginaid = $row["paginaid"];
-                $administradorid = $row["administradorid"];
-                $admin = new administrador($administradorid, $nombre, $ci, $direccion, $telefono, $usuario, "", $paginaid);
+                $apellido = $row["apellido"];
+                $sexo = $row["sexo"];
+
+                $fecha_ini = $row["fechai"];
+                $fecha_fin = $row["fechaf"];
+                $email = $row["email"];
+                $user = new Usuario($userid, $nombre, $apellido, $sexo, "", $fecha_ini, $fecha_fin, $email);
                 //var_dump($coment);
-                $lista[$cont++] = $admin;
+                $lista[$cont++] = $user;
             }
             return $lista;
         } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+    function iniciar($mail, $pass) {
+        try {
+            global $con;
+            $re = $con->Execute("SELECT *FROM usuario where email = '$mail' and pass = '$pass'");
+        } catch (Exception $ex) {
             echo $exc->getTraceAsString();
         }
     }

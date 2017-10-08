@@ -6,24 +6,49 @@ class Contacto {
     var $nombre;
     var $apellido;
     var $sexo;
-    var $genero;
     var $parentesco;
     var $telefono;
+    var $fecha_ini;
+    var $fecha_fin;
+    var $email;
 
-    public function __construct() {
-        parent::__construct();
-    }
-
-    function __construct1($contactoID, $nombre, $apellido, $sexo, $genero, $parentesco, $telefono) {
+    function __construct($contactoID, $nombre, $apellido, $sexo, $parentesco, $telefono, $fecha_ini, $fecha_fin, $email) {
         $this->contactoID = $contactoID;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->sexo = $sexo;
-        $this->genero = $genero;
         $this->parentesco = $parentesco;
         $this->telefono = $telefono;
+        $this->fecha_ini = $fecha_ini;
+        $this->fecha_fin = $fecha_fin;
+        $this->email = $email;
     }
 
+        function getFecha_ini() {
+        return $this->fecha_ini;
+    }
+
+    function getFecha_fin() {
+        return $this->fecha_fin;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function setFecha_ini($fecha_ini) {
+        $this->fecha_ini = $fecha_ini;
+    }
+
+    function setFecha_fin($fecha_fin) {
+        $this->fecha_fin = $fecha_fin;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    
     function getContactoID() {
         return $this->contactoID;
     }

@@ -8,23 +8,23 @@ class Contacto {
     var $sexo;
     var $parentesco;
     var $telefono;
+    var $email;
     var $fecha_ini;
     var $fecha_fin;
-    var $email;
 
-    function __construct($contactoID, $nombre, $apellido, $sexo, $parentesco, $telefono, $fecha_ini, $fecha_fin, $email) {
+    function __construct($contactoID, $nombre, $apellido, $sexo, $parentesco, $telefono, $email, $fecha_ini, $fecha_fin) {
         $this->contactoID = $contactoID;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->sexo = $sexo;
         $this->parentesco = $parentesco;
         $this->telefono = $telefono;
+        $this->email = $email;
         $this->fecha_ini = $fecha_ini;
         $this->fecha_fin = $fecha_fin;
-        $this->email = $email;
     }
 
-        function getFecha_ini() {
+    function getFecha_ini() {
         return $this->fecha_ini;
     }
 
@@ -48,7 +48,6 @@ class Contacto {
         $this->email = $email;
     }
 
-    
     function getContactoID() {
         return $this->contactoID;
     }

@@ -2,36 +2,30 @@
 
 class Usuario {
 
-    var $userid;
+    var $usuarioid;
     var $nombre;
     var $apellido;
     var $sexo;
+    var $email;
     var $pass;
+    var $estado;
     var $fechai;
     var $fechaf;
-    var $email;
 
-    function __construct($userid, $nombre, $apellido, $sexo, $pass, $fechai, $fechaf, $email) {
-        $this->userid = $userid;
+    function __construct($usuarioid, $nombre, $apellido, $sexo, $email, $pass, $estado, $fechai, $fechaf) {
+        $this->usuarioid = $usuarioid;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->sexo = $sexo;
+        $this->email = $email;
         $this->pass = $pass;
+        $this->estado = $estado;
         $this->fechai = $fechai;
         $this->fechaf = $fechaf;
-        $this->email = $email;
     }
 
-    function getEmail() {
-        return $this->email;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function getUserid() {
-        return $this->userid;
+    function getUsuarioid() {
+        return $this->usuarioid;
     }
 
     function getNombre() {
@@ -46,8 +40,16 @@ class Usuario {
         return $this->sexo;
     }
 
+    function getEmail() {
+        return $this->email;
+    }
+
     function getPass() {
         return $this->pass;
+    }
+
+    function getEstado() {
+        return $this->estado;
     }
 
     function getFechai() {
@@ -58,8 +60,8 @@ class Usuario {
         return $this->fechaf;
     }
 
-    function setUserid($userid) {
-        $this->userid = $userid;
+    function setUsuarioid($usuarioid) {
+        $this->usuarioid = $usuarioid;
     }
 
     function setNombre($nombre) {
@@ -74,8 +76,16 @@ class Usuario {
         $this->sexo = $sexo;
     }
 
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
     function setPass($pass) {
         $this->pass = $pass;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
     }
 
     function setFechai($fechai) {
@@ -85,5 +95,7 @@ class Usuario {
     function setFechaf($fechaf) {
         $this->fechaf = $fechaf;
     }
+
+
 
 }

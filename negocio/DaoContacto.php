@@ -18,15 +18,15 @@ class DaoContacto {
      * @param $parentesco 
      * @param $telefono 
      * @param $email 
-     * @param $fechai 
-     * @param $fechaf 
+     * @param $fechacre 
+     * @param $fechaMod 
      * 
      */
-    public static function registrar($nombre, $apellido, $sexo, $parentesco, $telefono, $email, $fechai, $fechaf) {
+    public static function registrar($nombre, $apellido, $sexo, $parentesco, $telefono, $email, $fechacre, $fechaMod) {
         try {
             global $con;
-            $query = "INSERT INTO contacto(nombre, apellido, sexo, parentesco, telefono, email, fechai, fechaf)
-            VALUES('$nombre', '$apellido', '$sexo', '$parentesco', '$telefono', '$email', '$fechai', '$fechaf' )";
+            $query = "INSERT INTO contacto(nombre, apellido, sexo, parentesco, telefono, email, fechacre, fechaMod)
+            VALUES('$nombre', '$apellido', '$sexo', '$parentesco', '$telefono', '$email', '$fechacre', '$fechaMod' )";
 
             $re = $con->Execute($query);
             echo $re;
@@ -45,14 +45,14 @@ class DaoContacto {
      * @param $parentesco 
      * @param $telefono 
      * @param $email 
-     * @param $fechai 
-     * @param $fechaf 
+     * @param $fechacre 
+     * @param $fechaMod 
      * 
      */
-    public static function update($contactoID, $nombre, $apellido, $sexo, $parentesco, $telefono, $email, $fechai, $fechaf) {
+    public static function update($contactoID, $nombre, $apellido, $sexo, $parentesco, $telefono, $email, $fechacre, $fechaMod) {
         // Creando consulta UPDATE
         $consulta = "UPDATE contacto SET , nombre='$nombre', apellido='$apellido', sexo='$sexo', parentesco='$parentesco', telefono='$telefono', 
-       email='$email', fechai='$fechai', fechaf='$fechaf' WHERE contactoid='$contactoID'";
+       email='$email', fechacre='$fechacre', fechaMod='$fechaMod' WHERE contactoid='$contactoID'";
         try {
 
             global $con;
@@ -100,8 +100,8 @@ class DaoContacto {
                 $parentesco = $row["parentesco"];
                 $telefono = $row["telefono"];
                 $email = $row["email"];
-                $fecha_ini = $row["fechai"];
-                $fecha_fin = $row["fechaf"];
+                $fecha_ini = $row["fechacre"];
+                $fecha_fin = $row["fechaMod"];
                 $contacto = new Contacto($contactoID , $nombre, $apellido, $sexo, $parentesco, $telefono, $email, $fecha_ini, $fecha_fin);
                 $lista[$cont++] = $contacto;
             }
@@ -132,8 +132,8 @@ class DaoContacto {
                 $parentesco = $row["parentesco"];
                 $telefono = $row["telefono"];
                 $email = $row["email"];
-                $fecha_ini = $row["fechai"];
-                $fecha_fin = $row["fechaf"];
+                $fecha_ini = $row["fechacre"];
+                $fecha_fin = $row["fechaMod"];
                 $contacto = new Contacto($contactoID , $nombre, $apellido, $sexo, $parentesco, $telefono, $email, $fecha_ini, $fecha_fin);
                 $lista[$cont++] = $contacto;
             }

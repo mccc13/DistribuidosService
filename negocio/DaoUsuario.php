@@ -27,7 +27,7 @@ class DaoUsuario {
     public static function regitrarUsuario($nombre, $apellido, $sexo, $email, $pass, $estado, $fecha_ini, $fecha_fin) {
         try {
             global $con;
-            $query = "INSERT INTO usuario(nombre, apellido, sexo, email, pass, estado, fechai, fechaf) values('$nombre', '$apellido', '$sexo', '$email', '$pass', '$estado', '$fecha_ini', '$fecha_fin' )";
+            $query = "INSERT INTO usuario(nombre, apellido, sexo, email, pass, estado, fechacre, fechaMod) values('$nombre', '$apellido', '$sexo', '$email', '$pass', '$estado', '$fecha_ini', '$fecha_fin' )";
 
             $re = $con->Execute($query);
             echo $re;
@@ -58,8 +58,8 @@ class DaoUsuario {
                 $email = $row["email"];
 
                 $estado = $row["estado"];
-                $fecha_ini = $row["fechai"];
-                $fecha_fin = $row["fechaf"];
+                $fecha_ini = $row["fechacre"];
+                $fecha_fin = $row["fechaMod"];
 
                 $user = new Usuario($usuarioid, $nombre, $apellido, $sexo, $email, "", $estado, $fecha_ini, $fecha_fin);
                 //var_dump($coment);
@@ -91,8 +91,8 @@ class DaoUsuario {
                 $sexo = $row["sexo"];
                 $email = $row["email"];
                 $estado = $row["estado"];
-                $fecha_ini = $row["fechai"];
-                $fecha_fin = $row["fechaf"];
+                $fecha_ini = $row["fechacre"];
+                $fecha_fin = $row["fechaMod"];
                 $user = new Usuario($usuarioid, $nombre, $apellido, $sexo, $email, "", $estado, $fecha_ini, $fecha_fin);
                 $lista[$cont++] = $user;
             }
@@ -118,7 +118,7 @@ class DaoUsuario {
      */
     public static function update($nombre, $apellido, $sexo, $email, $pass, $estado, $fecha_ini, $fecha_fin) {
         // Creando consulta UPDATE
-        $consulta = "UPDATE usuario SET nombre='$nombre', apellido='$apellido', sexo='$sexo', pass='$pass', estado='$estado', fechai='$fecha_ini', fechaf='$fecha_fin' WHERE email='$email'";
+        $consulta = "UPDATE usuario SET nombre='$nombre', apellido='$apellido', sexo='$sexo', pass='$pass', estado='$estado', fechacre='$fecha_ini', fechaMod='$fecha_fin' WHERE email='$email'";
 
         try {
 
@@ -162,8 +162,8 @@ class DaoUsuario {
                 $email = $row["email"];
                 $pass = $row["pass"];
                 $estado = $row["estado"];
-                $fecha_ini = $row["fechai"];
-                $fecha_fin = $row["fechaf"];
+                $fecha_ini = $row["fechacre"];
+                $fecha_fin = $row["fechaMod"];
                 $user = new Usuario($usuarioid, $nombre, $apellido, $sexo, $email, $pass, $estado, $fecha_ini, $fecha_fin);
                 //var_dump($coment);
                 $lista[$cont++] = $user;

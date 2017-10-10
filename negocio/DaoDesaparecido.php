@@ -22,15 +22,15 @@ class DaoDesaparecido {
      * @param $vestimenta
      * @param $constiucion
      * @param $otros
-     * @param $fechai
-     * @param $fechaf
+     * @param $fechacre
+     * @param $fechaMod
      * 
      */
-    public static function registrar($nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constiucion, $otros, $fechai, $fechaf) {
+    public static function registrar($nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constiucion, $otros, $fechacre, $fechaMod) {
         try {
             global $con;
-            $query = "INSERT INTO desaparecido(nombre, apellido, edad, sexo, estatura, colorpelo, colorpiel, vestimenta, constitucion, otros, fechai, fechaf)
-    VALUES('$nombre', '$apellido', '$edad', '$sexo', '$estatura', '$colorpelo', '$colorpiel', '$vestimenta', '$constiucion', '$otros', '$fechai', '$fechaf' )";
+            $query = "INSERT INTO desaparecido(nombre, apellido, edad, sexo, estatura, colorpelo, colorpiel, vestimenta, constitucion, otros, fechacre, fechaMod)
+    VALUES('$nombre', '$apellido', '$edad', '$sexo', '$estatura', '$colorpelo', '$colorpiel', '$vestimenta', '$constiucion', '$otros', '$fechacre', '$fechaMod' )";
 
             $re = $con->Execute($query);
             echo $re;
@@ -53,15 +53,15 @@ class DaoDesaparecido {
      * @param $vestimenta
      * @param $constiucion
      * @param $otros
-     * @param $fechai
-     * @param $fechaf
+     * @param $fechacre
+     * @param $fechaMod
      * 
      */
-    public static function update($desaparecidoID, $nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constiucion, $otros, $fechai, $fechaf) {
+    public static function update($desaparecidoID, $nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constiucion, $otros, $fechacre, $fechaMod) {
         // Creando consulta UPDATE
         $consulta = "UPDATE desaparecido SET nombre='$nombre', apellido='$apellido', edad='$edad', sexo='$sexo', estatura='$estatura', 
         colorpelo='$colorpelo', colorpiel='$colorpiel', vestimenta='$vestimenta', constitucion='$constiucion', otros='$otros', 
-        fechai='$fechai', fechaf='$fechaf' WHERE WHERE desaparecidoid='$desaparecidoID'";
+        fechacre='$fechacre', fechaMod='$fechaMod' WHERE WHERE desaparecidoid='$desaparecidoID'";
         try {
 
             global $con;
@@ -113,8 +113,8 @@ class DaoDesaparecido {
                 $vestimenta = $row["vestimenta"];        
                 $constitucion = $row["constitucion"];       
                 $otros = $row["otros"];
-                    $fecha_ini   = $row["fechai"]; 
-               $fecha_fin = $row["fechaf"];
+                    $fecha_ini   = $row["fechacre"]; 
+               $fecha_fin = $row["fechaMod"];
                         
                 $imagen = new Desaparecido($desaparecidoID, $nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constitucion, $otros, $fecha_ini, $fecha_fin);
                 $lista[$cont++] = $imagen;
@@ -150,8 +150,8 @@ class DaoDesaparecido {
                 $vestimenta = $row["vestimenta"];        
                 $constitucion = $row["constitucion"];       
                 $otros = $row["otros"];
-                    $fecha_ini   = $row["fechai"]; 
-               $fecha_fin = $row["fechaf"];
+                    $fecha_ini   = $row["fechacre"]; 
+               $fecha_fin = $row["fechaMod"];
                         
                 $imagen = new Desaparecido($desaparecidoID, $nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constitucion, $otros, $fecha_ini, $fecha_fin);
                 $lista[$cont++] = $imagen;

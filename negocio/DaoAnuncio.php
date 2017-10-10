@@ -16,17 +16,17 @@ class DaoAnuncio {
      * @param $contactoID Identificador de contacto
      * @param $usuarioID Identificador de usuario
      * @param $estado estado de anuncio
-     * @param $fechai Fecha inicial de la publicacion
-     * @param $fechaf Fecha final de la publicacion
+     * @param $fechacre Fecha inicial de la publicacion
+     * @param $fechaMod Fecha final de la publicacion
      * @param $imagenID Identificador de imagen
      * @param $observacion Observacion de la imagen
      * 
      */
-    public static function registrar($desaparecidoID, $contactoID, $usuarioID, $estado, $fechai, $fechaf, $imagenID, $observacion) {
+    public static function registrar($desaparecidoID, $contactoID, $usuarioID, $estado, $fechacre, $fechaMod, $imagenID, $observacion) {
         try {
             global $con;
-            $query = "INSERT INTO anuncio( desaparecidoid, contactoid, usuarioid, estado, fechai, fechaf, imagenid, observacion)
-    VALUES('$desaparecidoID', '$contactoID', '$usuarioID', '$estado', '$fechai', '$fechaf', '$imagenID', '$observacion' )";
+            $query = "INSERT INTO anuncio( desaparecidoid, contactoid, usuarioid, estado, fechacre, fechaMod, imagenid, observacion)
+    VALUES('$desaparecidoID', '$contactoID', '$usuarioID', '$estado', '$fechacre', '$fechaMod', '$imagenID', '$observacion' )";
 
             $re = $con->Execute($query);
             echo $re;
@@ -43,16 +43,16 @@ class DaoAnuncio {
      * @param $contactoID Identificador de contacto
      * @param $usuarioID Identificador de usuario
      * @param $estado estado de anuncio
-     * @param $fechai Fecha inicial de la publicacion
-     * @param $fechaf Fecha final de la publicacion
+     * @param $fechacre Fecha inicial de la publicacion
+     * @param $fechaMod Fecha final de la publicacion
      * @param $imagenID Identificador de imagen
      * @param $observacion Observacion de la imagen
      * 
      */
-    public static function update($anuncioID, $desaparecidoID, $contactoID, $usuarioID, $estado, $fechai, $fechaf, $imagenID, $observacion) {
+    public static function update($anuncioID, $desaparecidoID, $contactoID, $usuarioID, $estado, $fechacre, $fechaMod, $imagenID, $observacion) {
         // Creando consulta UPDATE
         $consulta = "UPDATE anuncio SET desaparecidoid='$desaparecidoID', contactoid='$contactoID', usuarioid='$usuarioID', estado='$estado', 
-       fechai='$fechai', fechaf='$fechaf', imagenid='$imagenID', observacion='$observacion' WHERE anuncioid='$anuncioID'";
+       fechacre='$fechacre', fechaMod='$fechaMod', imagenid='$imagenID', observacion='$observacion' WHERE anuncioid='$anuncioID'";
 
         try {
 
@@ -100,8 +100,8 @@ class DaoAnuncio {
                 $contactoID = $row["contactoid"];
                 $usuarioID = $row["usuarioid"];
                 $estado = $row["estado"];
-                $fecha_ini = $row["fechai"];
-                $fecha_fin = $row["fechaf"];
+                $fecha_ini = $row["fechacre"];
+                $fecha_fin = $row["fechaMod"];
                 $imagenID = $row["imagenid"];
                 $observacion = $row["observacion"];
                 $anuncio = new Anuncio($anuncioID, $desaparecidoID, $contactoID, $usuarioID, $estado, $fecha_ini, $fecha_fin, $imagenID, $observacion);
@@ -132,8 +132,8 @@ class DaoAnuncio {
                 $contactoID = $row["contactoid"];
                 $usuarioID = $row["usuarioid"];
                 $estado = $row["estado"];
-                $fecha_ini = $row["fechai"];
-                $fecha_fin = $row["fechaf"];
+                $fecha_ini = $row["fechacre"];
+                $fecha_fin = $row["fechaMod"];
                 $imagenID = $row["imagenid"];
                 $observacion = $row["observacion"];
                 $anuncio = new Anuncio($anuncioID, $desaparecidoID, $contactoID, $usuarioID, $estado, $fecha_ini, $fecha_fin, $imagenID, $observacion);

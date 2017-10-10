@@ -27,7 +27,7 @@ class DaoUsuario {
     public static function regitrarUsuario($nombre, $apellido, $sexo, $email, $pass, $estado, $fecha_ini, $fecha_fin) {
         try {
             global $con;
-            $query = "INSERT INTO usuario(nombre, apellido, sexo, email, pass, estado, fechacre, fechaMod) values('$nombre', '$apellido', '$sexo', '$email', '$pass', '$estado', '$fecha_ini', '$fecha_fin' )";
+            $query = "INSERT INTO usuario(nombre, apellido, sexo, email, pass, estado, fechacre, fechamod) values('$nombre', '$apellido', '$sexo', '$email', '$pass', '$estado', '$fecha_ini', '$fecha_fin' )";
 
             $re = $con->Execute($query);
             echo $re;
@@ -59,7 +59,7 @@ class DaoUsuario {
 
                 $estado = $row["estado"];
                 $fecha_ini = $row["fechacre"];
-                $fecha_fin = $row["fechaMod"];
+                $fecha_fin = $row["fechamod"];
 
                 $user = new Usuario($usuarioid, $nombre, $apellido, $sexo, $email, "", $estado, $fecha_ini, $fecha_fin);
                 //var_dump($coment);
@@ -92,7 +92,7 @@ class DaoUsuario {
                 $email = $row["email"];
                 $estado = $row["estado"];
                 $fecha_ini = $row["fechacre"];
-                $fecha_fin = $row["fechaMod"];
+                $fecha_fin = $row["fechamod"];
                 $user = new Usuario($usuarioid, $nombre, $apellido, $sexo, $email, "", $estado, $fecha_ini, $fecha_fin);
                 $lista[$cont++] = $user;
             }
@@ -118,7 +118,7 @@ class DaoUsuario {
      */
     public static function update($nombre, $apellido, $sexo, $email, $pass, $estado, $fecha_ini, $fecha_fin) {
         // Creando consulta UPDATE
-        $consulta = "UPDATE usuario SET nombre='$nombre', apellido='$apellido', sexo='$sexo', pass='$pass', estado='$estado', fechacre='$fecha_ini', fechaMod='$fecha_fin' WHERE email='$email'";
+        $consulta = "UPDATE usuario SET nombre='$nombre', apellido='$apellido', sexo='$sexo', pass='$pass', estado='$estado', fechacre='$fecha_ini', fechamod='$fecha_fin' WHERE email='$email'";
 
         try {
 
@@ -149,9 +149,14 @@ class DaoUsuario {
         }
     }
 
-    public function verificarUser($email, $pass) {
-        $query = "SELECT *FROM usuario where email = '$email' and pass = '$pass'";
+    public static function suma($param1, $parma2) {
+        return $param1 + $parma2;
+    }
+
+    public static function verificarUser($parm1, $parm2) {
         try {
+            $query = "SELECT *FROM usuario where email = '".$parm1."' and pass = '".$parm2."'";
+
             global $con;
             $re = $con->Execute($query);
             foreach ($re as $row) {
@@ -163,7 +168,7 @@ class DaoUsuario {
                 $pass = $row["pass"];
                 $estado = $row["estado"];
                 $fecha_ini = $row["fechacre"];
-                $fecha_fin = $row["fechaMod"];
+                $fecha_fin = $row["fechamod"];
                 $user = new Usuario($usuarioid, $nombre, $apellido, $sexo, $email, $pass, $estado, $fecha_ini, $fecha_fin);
                 //var_dump($coment);
                 $lista[$cont++] = $user;

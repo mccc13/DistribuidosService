@@ -12,7 +12,7 @@ require_once '../adodb5/adodb-exceptions.inc.php';
     $dbserver = '127.0.0.1';
     $dbname = $nombre;    
     $dbuser = 'postgres';
-    $dbpassword = 'diego';  
+    $dbpassword = 'password';  
     
     
     $con= NewADOConnection($dbdriver);

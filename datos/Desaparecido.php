@@ -13,8 +13,10 @@ class Desaparecido {
     var $vestimenta;
     var $constitucion;
     var $otros;
+    var $fecha_ini;
+    var $fecha_fin;
 
-    function __construct($desaparecidoID, $nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constitucion, $otros) {
+    function __construct($desaparecidoID, $nombre, $apellido, $edad, $sexo, $estatura, $colorpelo, $colorpiel, $vestimenta, $constitucion, $otros, $fecha_ini, $fecha_fin) {
         $this->desaparecidoID = $desaparecidoID;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
@@ -26,6 +28,24 @@ class Desaparecido {
         $this->vestimenta = $vestimenta;
         $this->constitucion = $constitucion;
         $this->otros = $otros;
+        $this->fecha_ini = $fecha_ini;
+        $this->fecha_fin = $fecha_fin;
+    }
+
+    function getFecha_ini() {
+        return $this->fecha_ini;
+    }
+
+    function getFecha_fin() {
+        return $this->fecha_fin;
+    }
+
+    function setFecha_ini($fecha_ini) {
+        $this->fecha_ini = $fecha_ini;
+    }
+
+    function setFecha_fin($fecha_fin) {
+        $this->fecha_fin = $fecha_fin;
     }
 
     function getDesaparecidoID() {
